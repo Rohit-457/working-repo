@@ -3,8 +3,6 @@ pipeline {
         triggers {
                  pollSCM '* * * * * '
                 }
-        parameters {
-                 choice choices: ['QA', 'UAT'], description: 'choose the server', name: 'ENVIRONMENT'
                 }
         stages {
                 stage (checkout){
@@ -13,7 +11,7 @@ pipeline {
                 stage (build){
                         steps{sh 'mvn install'}
                 }
-                stage (Deploy){
+                stage (deploy){
                         steps{sh 'cp /target/working.war /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps'
                         }
                 }
