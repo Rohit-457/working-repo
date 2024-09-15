@@ -3,7 +3,6 @@ pipeline {
         triggers {
                  pollSCM '* * * * * '
                 }
-                }
         stages {
                 stage (checkout){
                         steps{git 'https://github.com/Rohit-457/working-repo.git'}
