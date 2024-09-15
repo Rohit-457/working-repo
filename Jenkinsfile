@@ -14,12 +14,7 @@ pipeline {
                         steps{sh 'mvn install'}
                 }
                 stage (Deploy){
-                        steps{sh '''if [ $ENVIRONMENT = "QA" ];then
-        cp working.war /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps
-                        elif  [ $ENVIRONMENT = "UAT" ];then
-         cp working.war /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps
-                        echo "deployment has been done!"
-                        fi'''
+                        steps{sh cp /target/working.war /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps
                         }
                 }
         }
